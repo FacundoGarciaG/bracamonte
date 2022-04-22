@@ -1,0 +1,48 @@
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30%;
+  height: 25rem;
+  background-color: #f4b955;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.img {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 700;
+}
+
+.save {
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.5rem 0 0.3rem 0;
+  outline: #f4b955 4px outset;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+table {
+  width: 100%;
+  background-color: #f4b955;
+  margin: 2rem 0;
+  border-radius: 0.5rem;
+}
+
+.imageHamburguer {
+  width: 10rem;
+}
+
+.deleteButton {
+  background-color: #d05a68;
+  cursor: pointer;
+}

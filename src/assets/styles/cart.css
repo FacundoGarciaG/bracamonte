@@ -1,0 +1,150 @@
+main {
+  height: 100%;
+}
+
+.cartItemContainer {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.emptyCart {
+  font-size: 5rem;
+}
+
+.cartContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.buttonsCart {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  align-items: center;
+}
+
+.payCart {
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+  width: 5rem;
+  color: #fff;
+  height: 5rem;
+}
+
+.clearCart {
+  background-color: #d05a68;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+  width: 3rem;
+  height: 2.7rem;
+}
+
+.clearCart p,
+.payCart p {
+  cursor: pointer;
+}
+
+.clearCart:active,
+.payCart:active {
+  outline: #f4b955 4px inset;
+}
+
+/* ITEM */
+.cartItem {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f4b955;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.productCartTitle {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  width: 14%;
+  height: 100%;
+  background-color: #084c3d;
+  padding: 0 1rem 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.productCartTitle h4 {
+  color: rgb(255, 255, 255);
+}
+
+.cartItem .productPrice {
+  background-color: #084c3d;
+  color: #f4b955;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  margin-left: 10rem;
+  border-radius: 0.5rem;
+}
+
+.cartItem .buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+}
+
+.cartItem .clearOne {
+  background-color: #d05a68;
+  cursor: pointer;
+  border: none;
+  outline: #f4b955 4px outset;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.cartItem .clearAll {
+  background-color: #d05a68;
+  cursor: pointer;
+  border: none;
+  outline: #f4b955 4px outset;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.cartItem .addOne {
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  outline: #f4b955 4px outset;
+  border-radius: 0.2rem;
+  padding: 0.2rem 1rem;
+}
+
+.cartItem .clearOne:active,
+.clearAll:active,
+.addOne:active {
+  outline: #f4b955 4px inset;
+}
+
+.total {
+  font-size: 1.8rem;
+  background-color: #084c3d;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.5rem;
+  color: #f4b955;
+}
+
+.price {
+  color: #fff;
+}

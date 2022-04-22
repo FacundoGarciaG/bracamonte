@@ -1,0 +1,4 @@
+verde: #084c3d
+amarillo: #f4b955
+pastel: #f5d9a9
+rojo: #d05a68

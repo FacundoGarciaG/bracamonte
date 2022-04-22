@@ -1,0 +1,160 @@
+.login-register-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-register {
+  background-color: #f4b955;
+  width: 30%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 8px #084c3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.inputs input {
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
+  outline: 0;
+  padding: 0.4rem 0.1rem;
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.inputs input::placeholder {
+  color: #084c3d;
+}
+
+.inputs input:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.login-register-form button {
+  margin-bottom: 1rem;
+  width: 10%;
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+}
+
+.login-register-form button:active,
+.googleLogin:active {
+  outline: #f4b955 4px inset;
+}
+
+.googleLogin {
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.6rem 0;
+  outline: #f4b955 4px outset;
+  width: 100%;
+}
+
+.googleLogin img {
+  width: 3rem;
+}
+
+.login-register-link {
+  color: #084c3d;
+  text-decoration: none;
+}
+
+.login-register-link p {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.login-register-link p:hover {
+  color: #f4b955;
+}
+
+.linksLogIn {
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.forgot {
+  text-decoration: none;
+  color: #084c3d;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.forgot:hover {
+  color: #f4b955;
+}
+
+/* PROFILE */
+
+.profileContainer {
+  display: flex;
+  justify-content: right;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f4b955;
+  width: 20%;
+  border-radius: 1rem;
+  position: fixed;
+}
+
+.profile .profileImg {
+  width: 20%;
+  border-radius: 50%;
+}
+
+.profile .profileIcon {
+  width: 10%;
+}
+
+.logOutButton {
+  margin: 1.5rem;
+  width: 10%;
+  background-color: #d05a68;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+}
+
+.logOutButton .logoutImage {
+  width: 1.2rem;
+}
+
+.logOutButton:active {
+  outline: #f4b955 4px inset;
+}
