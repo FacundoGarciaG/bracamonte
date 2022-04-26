@@ -140,6 +140,23 @@
   width: 10%;
 }
 
+.buttonsProfile {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.adminButton {
+  margin: 1.5rem;
+  width: 10%;
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+}
+
 .logOutButton {
   margin: 1.5rem;
   width: 10%;
@@ -155,6 +172,7 @@
   width: 1.2rem;
 }
 
-.logOutButton:active {
+.logOutButton:active,
+.adminButton:active {
   outline: #f4b955 4px inset;
 }

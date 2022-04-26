@@ -17,6 +17,7 @@ import { AuthProvider } from "../context/authContext";
 import ProtectedRoute from "../components/ProtectedRoute";
 
 import BuyForm from "../pages/BuyForm";
+import ProtectedRouteAdmin from "../components/admin/ProtectedRouteAdmin";
 
 const browserHistory = createBrowserHistory();
 
@@ -41,7 +42,15 @@ function App() {
               <Route exact path="/cart" element={<Cart />} />
               <Route exact path="/user" element={<Login />} />
               <Route exact path="/register" element={<Register />} />
-              <Route exact path="/admin" element={<Admin />} />
+              <Route
+                exact
+                path="/admin"
+                element={
+                  <ProtectedRouteAdmin>
+                    <Admin />
+                  </ProtectedRouteAdmin>
+                }
+              />
               <Route
                 exact
                 path="/pay"

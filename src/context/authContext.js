@@ -9,8 +9,9 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { toast } from "react-toastify";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const authContext = createContext();
 
@@ -25,14 +26,15 @@ export const AuthProvider = ({ children }) => {
   const [userLog, setUserLog] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const signUp = async (email, password) => {
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
+  const signUp = async (email, password, rol) => {
+    const userInfo = await createUserWithEmailAndPassword(auth, email, password)
+      .then((user) => {
         navigate("/");
         toast("Usuario registrado con éxito", {
           type: "success",
           autoClose: 1000,
         });
+        return user;
       })
       .catch((error) => {
         let message = error.message;
@@ -56,6 +58,9 @@ export const AuthProvider = ({ children }) => {
           });
         }
       });
+
+    const docuRef = doc(db, `admins/${userInfo.user.uid}`);
+    setDoc(docuRef, { email: email, rol: rol });
   };
 
   const logIn = async (email, password) => {
@@ -129,11 +134,29 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+  const getRol = async (uid) => {
+    const docuRef = doc(db, `admins/${uid}`);
+    const docu = await getDoc(docuRef);
+    const rol = docu.data().rol;
+    return rol;
+  };
+
+  const setUserLogWithFirebaseAndRol = async (currentUser) => {
+    await getRol(currentUser.uid).then((rol) => {
+      setUserLog({ ...currentUser, rol });
+    });
+  };
+
   useEffect(() => {
     // auth provider loaded
-    onAuthStateChanged(auth, (currentUser) => {
-      setUserLog(currentUser);
-      setLoading(false);
+    onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        await setUserLogWithFirebaseAndRol(currentUser);
+        setLoading(false);
+      } else {
+        setUserLog("");
+        setLoading(false);
+      }
     });
   }, []);
 

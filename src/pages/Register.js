@@ -13,7 +13,8 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUp(user.email, user.password);
+    const rol = "user";
+    signUp(user.email, user.password, rol);
   };
 
   return (
