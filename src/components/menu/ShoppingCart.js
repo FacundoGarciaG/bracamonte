@@ -4,13 +4,17 @@ import ProductItem from "./ProductItem";
 import "../../assets/styles/menu.css";
 import getActiveProducts from "../../functions/shopping/getActiveProducts";
 import { useEffect, useState } from "react";
+import Loader from "../Loader";
 
 const ShoppingCart = () => {
   const [hamburguers, setHamburguers] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const getProducts = async () => {
+    setLoading(true);
     const products = await getActiveProducts();
     setHamburguers(products);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -22,22 +26,26 @@ const ShoppingCart = () => {
 
   //const { products } = state.shopping;
 
-  return (
-    <div className="shopping">
-      <div className="products">
-        {hamburguers
-          ? hamburguers.map((product, index) => (
-              <div className="product" key={index}>
-                <ProductItem
-                  data={product}
-                  addToCart={() => dispatch(addToCart(product.id))}
-                />
-              </div>
-            ))
-          : null}
+  if (loading) {
+    return <Loader />;
+  } else {
+    return (
+      <div className="shopping">
+        <div className="products">
+          {hamburguers
+            ? hamburguers.map((product, index) => (
+                <div className="product" key={index}>
+                  <ProductItem
+                    data={product}
+                    addToCart={() => dispatch(addToCart(product.id))}
+                  />
+                </div>
+              ))
+            : null}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default ShoppingCart;

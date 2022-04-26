@@ -1,3 +1,10 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 form {
   display: flex;
   justify-content: center;
@@ -7,17 +14,44 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 30%;
+  width: 100%;
   height: 25rem;
   background-color: #f4b955;
   padding: 1rem;
   border-radius: 0.5rem;
 }
 
-.img {
+.formContainer .options {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  font-weight: 700;
+  height: 20rem;
+}
+
+.formContainer textarea {
+  margin-top: 1rem;
+}
+
+.formContainer .options select {
+  width: 15%;
+}
+
+.formContainer .options select {
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
+}
+
+.formContainer .input {
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
+  outline: 0;
+  padding: 0.4rem 0.1rem;
+  transition: border-color 0.2s;
+  color: #000;
 }
 
 .save {
@@ -31,10 +65,12 @@ form {
   font-size: 1.5rem;
 }
 
+/* TABLE */
+
 table {
-  width: 100%;
-  background-color: #f4b955;
-  margin: 2rem 0;
+  width: 80%;
+  background-color: #084c3d;
+  margin: 4rem 0;
   border-radius: 0.5rem;
 }
 
@@ -45,4 +81,36 @@ table {
 .deleteButton {
   background-color: #d05a68;
   cursor: pointer;
+  border: 0;
+  padding: 0.2rem;
+  outline: #f4b955 4px outset;
+}
+
+.deleteButton:active,
+.save:active,
+.activeButton:active {
+  outline: #f4b955 4px inset;
+}
+
+table tbody tr {
+  background-color: #f4b955;
+  text-align: center;
+}
+
+.activeButton {
+  background-color: #084c3d;
+  cursor: pointer;
+  border: 0;
+  padding: 0.2rem;
+  outline: #f4b955 4px outset;
+  margin: 0 1rem;
+  color: #f4b955;
+}
+
+.activeSelect {
+  margin-left: 1rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
 }

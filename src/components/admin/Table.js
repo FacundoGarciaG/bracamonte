@@ -2,7 +2,7 @@ import React from "react";
 
 import TableRow from "./TableRow";
 
-const Table = ({ hamburguers, onDelete }) => {
+const Table = ({ hamburguers, onDelete, updateActive }) => {
   return (
     <table>
       <thead>
@@ -18,7 +18,12 @@ const Table = ({ hamburguers, onDelete }) => {
       </thead>
       <tbody>
         {hamburguers.map((data, index) => (
-          <TableRow key={index} data={data} onDelete={onDelete} />
+          <TableRow
+            key={index}
+            data={data}
+            onDelete={onDelete}
+            updateActive={updateActive}
+          />
         ))}
       </tbody>
     </table>

@@ -10,9 +10,7 @@ const Contact = () => {
         className="contact"
         scrolling="no"
         height="3650"
-      >
-        Cargando…
-      </iframe>
+      ></iframe>
     </main>
   );
 };

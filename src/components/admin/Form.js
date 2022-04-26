@@ -8,7 +8,7 @@ const Form = ({ add, addImg }) => {
     name: "",
     description: "",
     vegan: false,
-    price: 0,
+    price: undefined,
     active: false,
   };
   const [data, setData] = useState(initialStateData);
@@ -71,6 +71,7 @@ const Form = ({ add, addImg }) => {
           name="name"
           onChange={handleInputChange}
           value={data.name}
+          className="input"
         />
         <textarea
           rows="10"
@@ -78,35 +79,32 @@ const Form = ({ add, addImg }) => {
           name="description"
           onChange={handleInputChange}
           value={data.description}
+          className="input"
         />
-        <label>
-          Vegana
+        <div className="options">
+          <label>Vegana</label>
           <select name="vegan" onChange={handleInputChange} value={data.vegan}>
             <option value={false}>No</option>
             <option value={true}>Si</option>
           </select>
-        </label>
-        <label>
-          Precio: $
+          <label>Precio: </label>
           <input
             type="number"
             name="price"
             onChange={handleInputChange}
             value={data.price}
+            className="input"
           />
-        </label>
 
-        <label className="img">
-          Imagen
+          <label>Imagen</label>
           <input
             type="file"
             name="img"
             onChange={fileHandleInputChange}
             value={data.img}
+            className="inputImage"
           />
-        </label>
-        <label className="active">
-          Activo
+          <label className="active">Activo</label>
           <select
             name="active"
             onChange={handleInputChange}
@@ -115,7 +113,7 @@ const Form = ({ add, addImg }) => {
             <option value={false}>No</option>
             <option value={true}>Si</option>
           </select>
-        </label>
+        </div>
         <button className="save">
           <img src={save} alt="guardar" />
         </button>
