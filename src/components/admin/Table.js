@@ -2,7 +2,7 @@ import React from "react";
 
 import TableRow from "./TableRow";
 
-const Table = ({ hamburguers, onDelete, updateActive }) => {
+const Table = ({ hamburguers, onDelete, updateActive, updatePrice }) => {
   return (
     <table>
       <thead>
@@ -23,6 +23,7 @@ const Table = ({ hamburguers, onDelete, updateActive }) => {
             data={data}
             onDelete={onDelete}
             updateActive={updateActive}
+            updatePrice={updatePrice}
           />
         ))}
       </tbody>

@@ -6,9 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 import "./firebase";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
+
   document.getElementById("root")
 );
 

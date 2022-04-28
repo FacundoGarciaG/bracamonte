@@ -75,20 +75,43 @@ const Admin = () => {
   const updateActive = async (dataActive, id) => {
     try {
       if (dataActive === "true") {
-        window.confirm("Estas seguro que desea mostrar esta hamburguesa?");
+        window.confirm("Estas seguro que deseas mostrar esta hamburguesa?");
         const activeRef = doc(db, "hamburguers", id);
         await updateDoc(activeRef, {
           active: dataActive,
         });
+        toast("Hamburguesa EN el menu", { type: "success", autoClose: 1000 });
       } else if (dataActive === "false") {
         window.confirm(
-          "Estas seguro que desea dejar de mostrar esta hamburguesa?"
+          "Estas seguro que deseas dejar de mostrar esta hamburguesa?"
         );
         const activeRef = doc(db, "hamburguers", id);
         await updateDoc(activeRef, {
           active: dataActive,
         });
+        toast("Hamburguesa FUERA del menu", {
+          type: "success",
+          autoClose: 1000,
+        });
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updatePrice = async (dataPrice, id) => {
+    try {
+      window.confirm(
+        "Estas seguro que deseas cambiar el precio de esta hamburguesa?"
+      );
+      const activeRef = doc(db, "hamburguers", id);
+      await updateDoc(activeRef, {
+        price: dataPrice,
+      });
+      toast("Precio actualizado con exito!", {
+        type: "success",
+        autoClose: 1000,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -105,7 +128,7 @@ const Admin = () => {
         <Table
           hamburguers={hamburguers}
           onDelete={onDelete}
-          {...{ updateActive }}
+          {...{ updateActive, updatePrice }}
         />
       </div>
     );

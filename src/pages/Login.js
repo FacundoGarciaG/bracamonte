@@ -21,7 +21,8 @@ const Login = () => {
     logIn(user.email, user.password);
   };
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = (e) => {
+    e.preventDefault();
     logInWithGoogle();
   };
 

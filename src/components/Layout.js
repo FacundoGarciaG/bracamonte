@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import WhatsApp from "./WhatsApp";
 
 const Layout = (props) => {
   const { children } = props;
@@ -8,6 +9,7 @@ const Layout = (props) => {
     <>
       <Header />
       {children}
+      <WhatsApp />
       <Footer />
     </>
   );

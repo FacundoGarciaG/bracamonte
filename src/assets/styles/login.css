@@ -117,7 +117,7 @@
 
 .profileContainer {
   display: flex;
-  justify-content: right;
+  justify-content: space-around;
 }
 
 .profile {
@@ -129,6 +129,7 @@
   width: 20%;
   border-radius: 1rem;
   position: fixed;
+  right: 0;
 }
 
 .profile .profileImg {
@@ -168,6 +169,28 @@
   outline: #f4b955 4px outset;
 }
 
+.editButton {
+  margin: 1.5rem;
+  width: 10%;
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px inset;
+}
+
+.editButtonActive {
+  margin: 1.5rem;
+  width: 10%;
+  background-color: #d05a68;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+}
+
 .logOutButton .logoutImage {
   width: 1.2rem;
 }
@@ -175,4 +198,37 @@
 .logOutButton:active,
 .adminButton:active {
   outline: #f4b955 4px inset;
+}
+
+/* FORM DATA USER */
+
+.formData {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20rem;
+  align-items: unset;
+  width: 25rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.formDataUser {
+  background-color: #d05a68;
+  opacity: 0.6;
+}
+
+.formDataUserBlock {
+  background-color: #f4b955;
+}
+
+.formData label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formData label input {
+  width: 13rem;
 }

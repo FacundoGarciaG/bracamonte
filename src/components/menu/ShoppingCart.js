@@ -1,30 +1,10 @@
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../actions/shoppingActions";
 import ProductItem from "./ProductItem";
 import "../../assets/styles/menu.css";
-import getActiveProducts from "../../functions/shopping/getActiveProducts";
-import { useEffect, useState } from "react";
 import Loader from "../Loader";
+import { useShopping } from "../../context/shoppingContext";
 
 const ShoppingCart = () => {
-  const [hamburguers, setHamburguers] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const getProducts = async () => {
-    setLoading(true);
-    const products = await getActiveProducts();
-    setHamburguers(products);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  //const state = useSelector((state) => state);
-  const dispatch = useDispatch();
-
-  //const { products } = state.shopping;
+  const { hamburguers, loading } = useShopping();
 
   if (loading) {
     return <Loader />;
@@ -35,10 +15,7 @@ const ShoppingCart = () => {
           {hamburguers
             ? hamburguers.map((product, index) => (
                 <div className="product" key={index}>
-                  <ProductItem
-                    data={product}
-                    addToCart={() => dispatch(addToCart(product.id))}
-                  />
+                  <ProductItem data={product} />
                 </div>
               ))
             : null}

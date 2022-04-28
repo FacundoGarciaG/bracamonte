@@ -1,10 +1,8 @@
-import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import "../assets/styles/App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import store from "../store";
 import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
@@ -18,6 +16,7 @@ import ProtectedRoute from "../components/ProtectedRoute";
 
 import BuyForm from "../pages/BuyForm";
 import ProtectedRouteAdmin from "../components/admin/ProtectedRouteAdmin";
+import { ShoppingProvider } from "../context/shoppingContext";
 
 const browserHistory = createBrowserHistory();
 
@@ -25,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Provider store={store}>
+        <ShoppingProvider>
           <Layout>
             <Routes history={browserHistory}>
               <Route exact path="/" element={<Home />} />
@@ -63,7 +62,7 @@ function App() {
             </Routes>
           </Layout>
           <ToastContainer />
-        </Provider>
+        </ShoppingProvider>
       </AuthProvider>
     </BrowserRouter>
   );

@@ -6,27 +6,15 @@ import user from "../assets/statics/icons/guest-24.png";
 import contact from "../assets/statics/icons/email-24.png";
 import hamburguer from "../assets/statics/icons/hamburger-24.png";
 import cartIcon from "../assets/statics/icons/cart-59-24.png";
-import { useSelector } from "react-redux";
 import { useAuth } from "../context/authContext";
+import { useShopping } from "../context/shoppingContext";
 
 const Header = () => {
   const { userLog } = useAuth();
 
-  const state = useSelector((state) => state);
+  const { totalQty } = useShopping();
+
   const [styleHeader, setStyleHeader] = useState("header");
-
-  const { cart } = state.shopping;
-
-  const sumProducts = () => {
-    return cart.map((i) => i.quantity);
-  };
-
-  const arrayProducts = sumProducts();
-
-  let sum = 0;
-  for (let i = 0; i < arrayProducts.length; i++) {
-    sum += arrayProducts[i];
-  }
 
   window.onscroll = function () {
     scrollFunction();
@@ -85,13 +73,13 @@ const Header = () => {
             <li>
               <Link to="/cart">
                 <img src={cartIcon} alt="carrito" className="icon cart" />
-                {sum ? (
+                {totalQty ? (
                   <span
                     id="cart_menu_num"
                     data-action="cart-can"
                     className="badge rounded-circle"
                   >
-                    {sum}
+                    {totalQty}
                   </span>
                 ) : null}
               </Link>

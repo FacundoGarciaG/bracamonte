@@ -1,6 +1,8 @@
 import add from "../../assets/statics/icons/cart-43-24.png";
+import { useShopping } from "../../context/shoppingContext";
 
-const ProductItem = ({ data, addToCart }) => {
+const ProductItem = ({ data }) => {
+  const { dispatch } = useShopping();
   let { id, name, description, vegan, price, img } = data;
 
   return (
@@ -14,7 +16,10 @@ const ProductItem = ({ data, addToCart }) => {
       </div>
       <img className="hamburguesa" src={img} alt="Hamburguesa" />
       <h5 className="price">${price}.00</h5>
-      <button className="add" onClick={() => addToCart(id)}>
+      <button
+        className="add"
+        onClick={() => dispatch({ type: "ADD_TO_CART", id: id, data })}
+      >
         <img src={add} alt="agregar" />
       </button>
     </div>

@@ -1,0 +1,12 @@
+.wpp {
+  width: 4rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 0;
+  z-index: 10;
+  cursor: pointer;
+
+  animation: bounce;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}

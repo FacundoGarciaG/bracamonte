@@ -98,8 +98,16 @@ export const AuthProvider = ({ children }) => {
   const logInWithGoogle = async () => {
     const googleProvider = new GoogleAuthProvider();
     await signInWithPopup(auth, googleProvider)
-      .then(() => {
-        navigate("/user");
+      .then((result) => {
+        const user = result.user;
+        if (user.rol === null) {
+          const rol = "user";
+          const docuRef = doc(db, `admins/${user.uid}`);
+          setDoc(docuRef, { email: user.email, rol: rol });
+          navigate("/user");
+        } else {
+          navigate("/user");
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -119,6 +127,7 @@ export const AuthProvider = ({ children }) => {
         });
       })
       .catch((error) => {
+        console.log(error);
         let message = error.message;
         if (message === "Firebase: Error (auth/user-not-found).") {
           toast("Usuario no registrado", {
@@ -134,16 +143,50 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
-  const getRol = async (uid) => {
+  const getData = async (uid) => {
     const docuRef = doc(db, `admins/${uid}`);
     const docu = await getDoc(docuRef);
-    const rol = docu.data().rol;
-    return rol;
+    const data = docu.data();
+    return data;
+  };
+
+  const editProfile = async (userDataEdit) => {
+    try {
+      const { displayName, email, phoneNumber, direction } = userDataEdit;
+      const docuRef = doc(db, `admins/${auth.currentUser.uid}`);
+
+      setDoc(docuRef, {
+        displayName,
+        email,
+        phoneNumber,
+        direction,
+        rol: "user",
+      });
+      toast("Perfil actualizado con exito", {
+        type: "success",
+        autoClose: 2000,
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      toast("Hubo un problema al actualizar el perfil", {
+        type: "warning",
+        autoClose: 2000,
+      });
+    }
   };
 
   const setUserLogWithFirebaseAndRol = async (currentUser) => {
-    await getRol(currentUser.uid).then((rol) => {
-      setUserLog({ ...currentUser, rol });
+    await getData(currentUser.uid).then((data) => {
+      const { displayName, email, phoneNumber, direction, rol } = data;
+      setUserLog({
+        ...currentUser,
+        displayName,
+        email,
+        phoneNumber,
+        direction,
+        rol,
+      });
     });
   };
 
@@ -170,6 +213,7 @@ export const AuthProvider = ({ children }) => {
         loading,
         logInWithGoogle,
         resetPassword,
+        editProfile,
       }}
     >
       {children}

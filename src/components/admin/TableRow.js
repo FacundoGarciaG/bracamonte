@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import remove from "../../assets/statics/icons/delete-24.png";
 
-const TableRow = ({ data, onDelete, updateActive }) => {
+const TableRow = ({ data, onDelete, updateActive, updatePrice }) => {
   const { name, description, vegan, price, active, img, id } = data;
   const [dataActive, setDataActive] = useState(active);
+  const [dataPrice, setDataPrice] = useState(price);
 
-  const handleInputChange = (e) => {
+  const handleInputChangeActive = (e) => {
     e.preventDefault();
     const { value } = e.target;
     setDataActive(value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmitActive = async (e) => {
     e.preventDefault();
     updateActive(dataActive, id);
+  };
+
+  const handleInputChangePrice = (e) => {
+    e.preventDefault();
+    const { value } = e.target;
+    setDataPrice(value);
+  };
+
+  const handleSubmitPrice = async (e) => {
+    e.preventDefault();
+    updatePrice(dataPrice, id);
   };
 
   return (
@@ -23,24 +35,32 @@ const TableRow = ({ data, onDelete, updateActive }) => {
       <td>{description}</td>
 
       <td>{vegan ? "SI" : "NO"}</td>
+      <td>
+        <form onSubmit={handleSubmitPrice}>
+          <input
+            type="number"
+            placeholder={`$${price}.00`}
+            onChange={handleInputChangePrice}
+          />
 
-      <td>${price}.00</td>
-
+          <button className="activeButton">OK</button>
+        </form>
+      </td>
       <td>
         <img className="imageHamburguer" src={img} alt={name} />
       </td>
-
       <td>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmitActive}>
           <select
             name="active"
             value={dataActive}
-            onChange={handleInputChange}
+            onChange={handleInputChangeActive}
             className="activeSelect"
           >
             <option value={false}>No</option>
             <option value={true}>Si</option>
           </select>
+
           <button className="activeButton">OK</button>
         </form>
       </td>

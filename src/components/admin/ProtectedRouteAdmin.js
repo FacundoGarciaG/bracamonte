@@ -4,7 +4,6 @@ import Loader from "../Loader";
 
 const ProtectedRouteAdmin = ({ children }) => {
   const { userLog, loading } = useAuth();
-  console.log(userLog);
 
   if (loading) return <Loader />;
   if (!userLog) return <Navigate to="/user" />;
