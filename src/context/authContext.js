@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
         navigate("/");
         toast("Usuario registrado con éxito", {
           type: "success",
-          autoClose: 1000,
         });
         return user;
       })
@@ -41,7 +40,6 @@ export const AuthProvider = ({ children }) => {
         if (message === "Firebase: Error (auth/email-already-in-use).") {
           toast("Email ya registrado", {
             type: "warning",
-            autoClose: 2000,
           });
         } else if (
           message ===
@@ -49,12 +47,10 @@ export const AuthProvider = ({ children }) => {
         ) {
           toast("La contraseña debe contener al menos 6 caracteres", {
             type: "warning",
-            autoClose: 2000,
           });
         } else if (message === "Firebase: Error (auth/invalid-email).") {
           toast("Email inválido", {
             type: "warning",
-            autoClose: 2000,
           });
         }
       });
@@ -74,17 +70,14 @@ export const AuthProvider = ({ children }) => {
         if (message === "Firebase: Error (auth/wrong-password).") {
           toast("Contraseña incorrecta", {
             type: "warning",
-            autoClose: 2000,
           });
         } else if (message === "Firebase: Error (auth/user-not-found).") {
           toast("Usuario no registrado", {
             type: "warning",
-            autoClose: 2000,
           });
         } else if (message === "Firebase: Error (auth/invalid-email).") {
           toast("Email inválido", {
             type: "warning",
-            autoClose: 2000,
           });
         }
       });
@@ -98,22 +91,13 @@ export const AuthProvider = ({ children }) => {
   const logInWithGoogle = async () => {
     const googleProvider = new GoogleAuthProvider();
     await signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        const user = result.user;
-        if (user.rol === null) {
-          const rol = "user";
-          const docuRef = doc(db, `admins/${user.uid}`);
-          setDoc(docuRef, { email: user.email, rol: rol });
-          navigate("/user");
-        } else {
-          navigate("/user");
-        }
+      .then(() => {
+        navigate("/user");
       })
       .catch((error) => {
         console.log(error);
         toast("Hubo un problema al intentar iniciar sesión", {
           type: "warning",
-          autoClose: 2000,
         });
       });
   };
@@ -123,7 +107,6 @@ export const AuthProvider = ({ children }) => {
       .then(() => {
         toast("Te enviamos un correo", {
           type: "success",
-          autoClose: 2000,
         });
       })
       .catch((error) => {
@@ -132,12 +115,10 @@ export const AuthProvider = ({ children }) => {
         if (message === "Firebase: Error (auth/user-not-found).") {
           toast("Usuario no registrado", {
             type: "warning",
-            autoClose: 2000,
           });
         } else if (message === "Firebase: Error (auth/invalid-email).") {
           toast("Email inválido", {
             type: "warning",
-            autoClose: 2000,
           });
         }
       });
@@ -150,44 +131,105 @@ export const AuthProvider = ({ children }) => {
     return data;
   };
 
-  const editProfile = async (userDataEdit) => {
+  const editProfile = async (userDataEdit, setReadOnly) => {
+    const { displayName, email, phoneNumber, direction, birthday } =
+      userDataEdit;
+
     try {
-      const { displayName, email, phoneNumber, direction } = userDataEdit;
       const docuRef = doc(db, `admins/${auth.currentUser.uid}`);
 
-      setDoc(docuRef, {
-        displayName,
-        email,
-        phoneNumber,
-        direction,
-        rol: "user",
-      });
-      toast("Perfil actualizado con exito", {
-        type: "success",
-        autoClose: 2000,
-      });
-      navigate("/");
+      if (displayName === undefined || displayName === "") {
+        toast("Es necesario llamarte por tu nombre", {
+          type: "warning",
+        });
+      } else if (email === "" || email === undefined) {
+        toast("Necesitamos tu correo electrónico", {
+          type: "warning",
+        });
+      } else if (phoneNumber === "" || phoneNumber === undefined) {
+        toast("Dejanos tu numero de teléfono", {
+          type: "warning",
+        });
+      } else if (direction === "" || direction === undefined) {
+        toast("Donde entregamos tu Bracamonte?", {
+          type: "warning",
+        });
+      } else {
+        setDoc(docuRef, {
+          displayName,
+          email,
+          phoneNumber,
+          direction,
+          birthday,
+          rol: userLog.rol,
+        });
+        setUserLog({
+          ...userLog,
+          displayName,
+          email,
+          phoneNumber,
+          direction,
+          birthday,
+          rol: userLog.rol,
+        });
+        setReadOnly(true);
+        toast("Perfil actualizado con exito", {
+          type: "success",
+        });
+      }
     } catch (error) {
       console.log(error);
+
       toast("Hubo un problema al actualizar el perfil", {
         type: "warning",
-        autoClose: 2000,
       });
     }
   };
 
   const setUserLogWithFirebaseAndRol = async (currentUser) => {
-    await getData(currentUser.uid).then((data) => {
-      const { displayName, email, phoneNumber, direction, rol } = data;
-      setUserLog({
-        ...currentUser,
-        displayName,
-        email,
-        phoneNumber,
-        direction,
-        rol,
+    const { displayName, email, phoneNumber } = currentUser;
+    const docuRef = doc(db, `admins/${currentUser.uid}`);
+
+    const docu = await getDoc(docuRef);
+    const data = docu.data();
+
+    if (data === undefined) {
+      const docuRef = doc(db, `admins/${currentUser.uid}`);
+      setDoc(docuRef, {
+        displayName: displayName,
+        email: email,
+        phoneNumber: phoneNumber,
+        direction: "",
+        rol: "user",
       });
-    });
+      await getData(currentUser.uid).then((data) => {
+        const { displayName, email, phoneNumber, direction, rol, birthday } =
+          data;
+        setUserLog({
+          ...currentUser,
+          displayName,
+          email,
+          phoneNumber,
+          direction,
+          birthday,
+          rol,
+        });
+      });
+    } else {
+      await getData(currentUser.uid).then((data) => {
+        const { displayName, email, phoneNumber, direction, rol, birthday } =
+          data;
+        setUserLog({
+          ...currentUser,
+          displayName,
+          email,
+          phoneNumber,
+          direction,
+          birthday,
+          rol,
+        });
+      });
+    }
   };
 
   useEffect(() => {

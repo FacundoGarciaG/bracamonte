@@ -158,6 +158,10 @@
   outline: #f4b955 4px outset;
 }
 
+.adminButton .adminButtonImage {
+  cursor: pointer;
+}
+
 .logOutButton {
   margin: 1.5rem;
   width: 10%;
@@ -206,8 +210,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   height: 20rem;
-  align-items: unset;
   width: 25rem;
   padding: 1rem 2rem;
   border-radius: 1rem;
@@ -231,4 +235,43 @@
 
 .formData label input {
   width: 13rem;
+}
+
+.formData .buttons {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.formData .buttons button {
+  width: 4rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  border: none;
+  outline: #f4b955 4px outset;
+}
+
+.formData .buttons button:active {
+  outline: #f4b955 4px inset;
+}
+
+.formData .buttons .buttonConfirmEdit {
+  background-color: #084c3d;
+}
+
+.formData .buttons .buttonCancelEdit {
+  background-color: #d05a68;
+}
+
+.formData label input {
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
+  outline: 0;
+  padding: 0.4rem 0.1rem;
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+  cursor: text;
 }

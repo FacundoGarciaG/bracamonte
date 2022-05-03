@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "animate.css";
 import "../assets/styles/wpp.css";
+import { useAuth } from "../context/authContext";
+import { toast } from "react-toastify";
 
 const WhatsApp = () => {
+  const [href, setHref] = useState("");
+  const [targetwpp, setTargetwpp] = useState("");
+  const { userLog } = useAuth();
+
+  const handleClick = () => {
+    if (userLog.displayName) {
+      setTargetwpp("_blank");
+      setHref(
+        `https://api.whatsapp.com/send?phone=542478510689&text=Hola!%20Mi%20nombre%20es%20${userLog.displayName},%20quisiera%20hacerles%20un%20pedido!%20%20%F0%9F%8D%94%F0%9F%8D%94%F0%9F%8D%94`
+      );
+    } else if (userLog && !userLog.displayName) {
+      setHref("#");
+      toast(
+        "Nos gustaria que nos dejes tu nombre desde la configuracion de tu perfil!",
+        {
+          type: "warning",
+          position: "bottom-right",
+        }
+      );
+    } else {
+      setHref("#");
+      toast("Primero logueate y dejanos tu nombre!", {
+        type: "warning",
+        position: "bottom-right",
+      });
+    }
+  };
+
   return (
     <>
-      <a href="https://walink.co/d5bcc3" target="_blank" rel="noreferrer">
+      <a href={href} target={targetwpp} rel="noreferrer" onClick={handleClick}>
         <>
           <svg
             className="wpp"

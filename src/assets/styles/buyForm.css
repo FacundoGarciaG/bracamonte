@@ -1,0 +1,134 @@
+h2 {
+  text-align: center;
+}
+
+.buyFormContainer {
+  padding: 2rem 10rem;
+  display: flex;
+  justify-content: space-between;
+  height: 70vh;
+}
+
+.buyForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  background-color: #f4b955;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 45%;
+  position: relative;
+}
+
+.buyForm .burguers {
+  display: none;
+}
+
+.buyForm label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.buyForm .observations {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.buyForm textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
+  outline: 0;
+  padding: 0.4rem 0.1rem;
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.buyForm input {
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
+  outline: 0;
+  padding: 0.4rem 0.1rem;
+  transition: border-color 0.2s;
+}
+
+.buyForm h4 {
+  margin: 0%;
+}
+
+.buyForm .buttons {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonBuyForm {
+  margin-bottom: 1rem;
+  width: 30%;
+  background-color: #084c3d;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+}
+
+.cancelButton {
+  margin-bottom: 1rem;
+  width: 30%;
+  background-color: #d05a68;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+}
+
+.alert {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+
+  width: 99%;
+  text-align: center;
+  background-color: #d05a68;
+  padding: 0.3rem;
+  border-radius: 0 0 2rem 2rem;
+}
+
+.imgBurguerToPay {
+  width: 8rem;
+}
+
+/* BURGUER TO BUY */
+
+.dataBurguers {
+  width: 45%;
+}
+
+.burguerToBuy {
+  margin-bottom: 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #084c3d;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+}
+
+.burguerToBuy h4 {
+  color: #f4b955;
+}

@@ -41,3 +41,22 @@ td {
   font-size: 0.9rem;
   cursor: default;
 }
+
+textarea {
+  resize: none;
+  cursor: text;
+}
+
+body::-webkit-scrollbar {
+  width: 0.9rem; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f5d9a9; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #084c3d; /* color of the scroll thumb */
+  border-radius: 2rem; /* roundness of the scroll thumb */
+  border: 0.2rem #f5d9a9 outset; /* creates padding around scroll thumb */
+}

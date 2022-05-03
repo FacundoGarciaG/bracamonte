@@ -39,7 +39,7 @@ export const ShoppingProvider = ({ children }) => {
 
   return (
     <shoppingContext.Provider
-      value={{ ...state, dispatch, hamburguers, loading }}
+      value={{ ...state, dispatch, hamburguers, loading, setLoading }}
     >
       {children}
     </shoppingContext.Provider>

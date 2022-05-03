@@ -17,7 +17,7 @@ const User = () => {
 
   return (
     <div className="profileContainer">
-      <ProfileDataForm readOnly={readOnly} />
+      <ProfileDataForm readOnly={readOnly} setReadOnly={setReadOnly} />
       <div className="profile">
         <h3>Hola {userLog.displayName || userLog.email}!</h3>
 
@@ -35,7 +35,11 @@ const User = () => {
           {userLog.rol === "admin" ? (
             <button className="adminButton">
               <Link to="/admin">
-                <img src={administrator} alt="administrador" />
+                <img
+                  src={administrator}
+                  alt="administrador"
+                  className="adminButtonImage"
+                />
               </Link>
             </button>
           ) : null}

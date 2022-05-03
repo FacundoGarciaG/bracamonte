@@ -7,9 +7,9 @@ const Form = ({ add, addImg }) => {
   const initialStateData = {
     name: "",
     description: "",
-    vegan: false,
+    vegan: "false",
     price: undefined,
-    active: false,
+    active: "false",
   };
   const [data, setData] = useState(initialStateData);
 
@@ -28,38 +28,40 @@ const Form = ({ add, addImg }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (data.name === "") {
-      toast("Es necesario darle un nombre a la hamburguesa", {
-        type: "warning",
-        autoClose: 2000,
-      });
-    } else if (data.description === "") {
-      toast("Es necesario darle una descripcion a la hamburguesa", {
-        type: "warning",
-        autoClose: 2000,
-      });
-    } else if (data.price === 0) {
-      toast("Es necesario ponerle un precio a la hamburguesa", {
-        type: "warning",
-        autoClose: 2000,
-      });
-    } else if (imgName === "") {
-      toast("Es necesario cargarle una imagen a su hamburguesa", {
-        type: "warning",
-        autoClose: 2000,
-      });
-    } else if (data.active === false) {
-      toast("Su hamburguesa se añadió pero no será publicada", {
-        type: "warning",
-        autoClose: 2000,
-      });
+    try {
+      if (data.name === "") {
+        toast("Es necesario darle un nombre a la hamburguesa", {
+          type: "warning",
+        });
+      } else if (data.description === "") {
+        toast("Es necesario darle una descripcion a la hamburguesa", {
+          type: "warning",
+        });
+      } else if (data.price === undefined) {
+        toast("Es necesario ponerle un precio a la hamburguesa", {
+          type: "warning",
+        });
+      } else if (imgName === "") {
+        toast("Es necesario cargarle una imagen a su hamburguesa", {
+          type: "warning",
+        });
+      } else if (data.active === "false") {
+        toast("Su hamburguesa se añadió pero no será publicada", {
+          type: "warning",
+        });
 
-      add(data);
-    } else {
-      add(data);
+        add(data);
+        setData({ ...initialStateData });
+      } else {
+        add(data);
+        setData({ ...initialStateData });
+      }
+    } catch (error) {
+      console.log(error);
+      toast("Hubo un problema al intentar añadir una hamburguesa", {
+        type: "error",
+      });
     }
-
-    setData({ ...initialStateData });
   };
 
   return (
@@ -70,7 +72,7 @@ const Form = ({ add, addImg }) => {
           placeholder="Nombre"
           name="name"
           onChange={handleInputChange}
-          value={data.name}
+          // value={data.name}
           className="input"
         />
         <textarea
@@ -78,21 +80,25 @@ const Form = ({ add, addImg }) => {
           placeholder="Descripción"
           name="description"
           onChange={handleInputChange}
-          value={data.description}
+          //value={data.description}
           className="input"
         />
         <div className="options">
           <label>Vegana</label>
-          <select name="vegan" onChange={handleInputChange} value={data.vegan}>
-            <option value={false}>No</option>
-            <option value={true}>Si</option>
+          <select
+            name="vegan"
+            onChange={handleInputChange}
+            defaultValue="false"
+          >
+            <option value="false">No</option>
+            <option value="true">Si</option>
           </select>
           <label>Precio: </label>
           <input
             type="number"
             name="price"
             onChange={handleInputChange}
-            value={data.price}
+            //value={data.price}
             className="input"
           />
 
@@ -101,17 +107,18 @@ const Form = ({ add, addImg }) => {
             type="file"
             name="img"
             onChange={fileHandleInputChange}
-            value={data.img}
+            //value={data.img}
             className="inputImage"
           />
           <label className="active">Activo</label>
           <select
             name="active"
             onChange={handleInputChange}
-            value={data.active}
+            defaultValue="false"
+            //value={data.active}
           >
-            <option value={false}>No</option>
-            <option value={true}>Si</option>
+            <option value="false">No</option>
+            <option value="true">Si</option>
           </select>
         </div>
         <button className="save">

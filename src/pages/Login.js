@@ -30,7 +30,6 @@ const Login = () => {
     if (!user.email)
       return toast("Por favor inserte su email", {
         type: "warning",
-        autoClose: 2000,
       });
     resetPassword(user.email);
   };

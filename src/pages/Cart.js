@@ -1,6 +1,7 @@
 import CartItem from "../components/cart/CartItem";
 import "../assets/styles/cart.css";
 import clear from "../assets/statics/icons/delete-24.png";
+import checkout from "../assets/statics/icons/checkout-24.png";
 import { Link } from "react-router-dom";
 import { useShopping } from "../context/shoppingContext";
 
@@ -27,14 +28,14 @@ const Cart = () => {
             </button>
             <Link to="/pay">
               <button className="payCart">
-                <p> Efectivo</p>
+                <img src={checkout} alt="pagar" />
               </button>
             </Link>
-            <Link to="#">
+            {/* <Link to="/paymp">
               <button className="payCart">
                 <p>Mercado Pago</p>
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       ) : (

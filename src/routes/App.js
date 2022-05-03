@@ -17,6 +17,7 @@ import ProtectedRoute from "../components/ProtectedRoute";
 import BuyForm from "../pages/BuyForm";
 import ProtectedRouteAdmin from "../components/admin/ProtectedRouteAdmin";
 import { ShoppingProvider } from "../context/shoppingContext";
+import ProtectedRouteBuyForm from "../components/buyForm/ProtectedRouteBuyForm";
 
 const browserHistory = createBrowserHistory();
 
@@ -55,13 +56,25 @@ function App() {
                 path="/pay"
                 element={
                   <ProtectedRoute>
-                    <BuyForm />
+                    <ProtectedRouteBuyForm>
+                      <BuyForm />
+                    </ProtectedRouteBuyForm>
                   </ProtectedRoute>
                 }
               />
             </Routes>
           </Layout>
-          <ToastContainer />
+          <ToastContainer
+            position="bottom-left"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover={false}
+          />
         </ShoppingProvider>
       </AuthProvider>
     </BrowserRouter>

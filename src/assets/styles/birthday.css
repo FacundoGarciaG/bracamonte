@@ -1,0 +1,14 @@
+.birthday {
+  position: fixed;
+  text-align: left;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: #f4b955;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 17%;
+  animation-delay: 8s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}

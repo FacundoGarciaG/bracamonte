@@ -1,6 +1,66 @@
 .contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  background-color: #f4b955;
+  padding: 1rem;
+  border-radius: 2rem;
+  margin-top: 2rem;
+}
+
+.contactForm label {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.contactForm .coments {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactForm textarea {
+  margin-top: 1rem;
+}
+
+.contactForm input,
+select,
+textarea {
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: #f5d9a9;
+  border-bottom: 2px solid #084c3d;
+  outline: 0;
+  padding: 0.4rem 0.1rem;
+  transition: border-color 0.2s;
+}
+
+.contactForm input,
+select {
+  width: 15rem;
+}
+
+.contactForm .sendButton {
+  margin: 1rem;
+  width: 10%;
+  height: 4rem;
+  background-color: #084c3d;
+  cursor: pointer;
   border: none;
-  margin-bottom: 2rem;
-  overflow: hidden;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem 0.4rem;
+  outline: #f4b955 4px outset;
+}
+
+.contactForm .sendButton:active {
+  outline: #f4b955 4px inset;
 }

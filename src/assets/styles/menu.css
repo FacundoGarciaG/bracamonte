@@ -26,6 +26,7 @@
   border-radius: 1rem;
   background-color: #f4b955;
   box-shadow: #084c3d 0px 5px 15px 0px;
+  height: 40rem;
 }
 
 .productTitle {
@@ -43,7 +44,17 @@
   font-size: 1.2rem;
 }
 
-.hamburguesa {
+.hamburguerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  height: 30rem;
+}
+
+.hamburguer {
   position: relative;
   width: 100%;
   margin-bottom: 4rem;

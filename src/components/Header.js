@@ -45,6 +45,7 @@ const Header = () => {
                         className="userImgHeader"
                         src={userLog.photoURL}
                         alt="imagen"
+                        referrerPolicy="no-referrer"
                       />
                     ) : (
                       <img src={user} alt="home" className="icon" />

@@ -43,7 +43,9 @@ const Admin = () => {
         .doc()
         .set({ ...productObjet, img: url });
       setLoading(false);
-      toast("Nueva hamburguesa agregada", { type: "success", autoClose: 1000 });
+      toast("Nueva hamburguesa agregada", {
+        type: "success",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -60,10 +62,13 @@ const Admin = () => {
   const onDelete = async (id) => {
     try {
       setLoading(true);
+
       if (window.confirm("Estas seguro que desea eliminar esta hamburguesa?")) {
         await db.collection("hamburguers").doc(id).delete();
         setLoading(false);
-        toast("Hamburguesa eliminada", { type: "success", autoClose: 1000 });
+        toast("Hamburguesa eliminada", {
+          type: "success",
+        });
       } else {
         setLoading(false);
       }
@@ -72,46 +77,65 @@ const Admin = () => {
     }
   };
 
-  const updateActive = async (dataActive, id) => {
+  const updateActive = async (dataActive, id, name, active) => {
     try {
-      if (dataActive === "true") {
-        window.confirm("Estas seguro que deseas mostrar esta hamburguesa?");
-        const activeRef = doc(db, "hamburguers", id);
-        await updateDoc(activeRef, {
-          active: dataActive,
-        });
-        toast("Hamburguesa EN el menu", { type: "success", autoClose: 1000 });
-      } else if (dataActive === "false") {
-        window.confirm(
-          "Estas seguro que deseas dejar de mostrar esta hamburguesa?"
+      if (dataActive === "true" && active === "false") {
+        const res = window.confirm(`Estas seguro que deseas mostrar ${name}?`);
+        if (res) {
+          const activeRef = doc(db, "hamburguers", id);
+          await updateDoc(activeRef, {
+            active: dataActive,
+          });
+          toast(`${name} EN el menu`, {
+            type: "success",
+          });
+        } else {
+          toast(`Bien, mantenemos ${name} FUERA del menu`, {
+            type: "success",
+          });
+        }
+      } else if (dataActive === "false" && active === "true") {
+        const res = window.confirm(
+          `Estas seguro que deseas dejar de mostrar ${name}?`
         );
-        const activeRef = doc(db, "hamburguers", id);
-        await updateDoc(activeRef, {
-          active: dataActive,
-        });
-        toast("Hamburguesa FUERA del menu", {
-          type: "success",
-          autoClose: 1000,
-        });
+        if (res) {
+          const activeRef = doc(db, "hamburguers", id);
+          await updateDoc(activeRef, {
+            active: dataActive,
+          });
+          toast(`${name} FUERA del menu`, {
+            type: "success",
+          });
+        } else {
+          toast(`Bien, mantenemos ${name} EN el menu`, {
+            type: "success",
+          });
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const updatePrice = async (dataPrice, id) => {
+  const updatePrice = async (dataPrice, id, name) => {
     try {
-      window.confirm(
-        "Estas seguro que deseas cambiar el precio de esta hamburguesa?"
+      const res = window.confirm(
+        `Estas seguro que deseas cambiar el precio de ${name}?`
       );
-      const activeRef = doc(db, "hamburguers", id);
-      await updateDoc(activeRef, {
-        price: dataPrice,
-      });
-      toast("Precio actualizado con exito!", {
-        type: "success",
-        autoClose: 1000,
-      });
+      if (res) {
+        const activeRef = doc(db, "hamburguers", id);
+        await updateDoc(activeRef, {
+          price: dataPrice,
+        });
+
+        toast(`Precio de ${name} actualizado con exito!`, {
+          type: "success",
+        });
+      } else {
+        toast(`Bien, mantendremos el precio de ${name}!`, {
+          type: "success",
+        });
+      }
     } catch (error) {
       console.log(error);
     }

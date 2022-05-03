@@ -9,7 +9,8 @@ const CartItem = ({ data, dispatch }) => {
     <>
       <div className="cartItem">
         <div className="productCartTitle">
-          <h4>{name}</h4> {vegan ? <b className="vegan">Vegana</b> : null}
+          <h4>{name}</h4>{" "}
+          {vegan === "true" ? <b className="vegan">Vegana</b> : null}
         </div>
         <h5 className="productPrice">
           ${price}.00 X {qty} =

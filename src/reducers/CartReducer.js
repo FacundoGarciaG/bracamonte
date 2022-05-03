@@ -1,5 +1,4 @@
 import { toast } from "react-toastify";
-toast.configure();
 
 const CartReducer = (state, action) => {
   const { shoppingCart, totalPrice, totalQty } = state;
@@ -16,15 +15,8 @@ const CartReducer = (state, action) => {
       );
       if (newProduct) {
         product = action.data;
-        toast.info(`${product.name} ya se encuentra en el carrito!`, {
-          position: "bottom-left",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
-          type: "warning",
+        toast(`${product.name} ya se encuentra en el carrito!`, {
+          type: "info",
         });
         return state;
       } else {
@@ -33,14 +25,7 @@ const CartReducer = (state, action) => {
         product["totalProductPrice"] = product.price * product.qty;
         updatedQty = totalQty + 1;
         updatedPrice = totalPrice + parseInt(product.price);
-        toast.info(`${product.name} añadida al carrito!`, {
-          position: "bottom-left",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
+        toast(`${product.name} añadida al carrito!`, {
           type: "success",
         });
         return {

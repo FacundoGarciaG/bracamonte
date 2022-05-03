@@ -4,7 +4,7 @@ import { useAuth } from "../../context/authContext";
 import confirm from "../../assets/statics/icons/check-mark-3-24.png";
 import cancel from "../../assets/statics/icons/cancel-24.png";
 
-const ProfileDataForm = ({ readOnly }) => {
+const ProfileDataForm = ({ readOnly, setReadOnly }) => {
   const { userLog, editProfile } = useAuth();
   const [userDataEdit, setUserDataEdit] = useState(userLog);
 
@@ -12,9 +12,13 @@ const ProfileDataForm = ({ readOnly }) => {
     setUserDataEdit({ ...userDataEdit, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    editProfile(userDataEdit);
+    await editProfile(userDataEdit, setReadOnly);
+  };
+
+  const handleCancelEdit = () => {
+    setReadOnly(true);
   };
 
   return (
@@ -33,9 +37,17 @@ const ProfileDataForm = ({ readOnly }) => {
             onChange={handleChange}
             readOnly={readOnly}
             type="text"
-            placeholder={
-              userLog.displayName ? userLog.displayName : "Nombre y apellido"
-            }
+            placeholder={userLog.displayName ? userLog.displayName : ""}
+          />
+        </label>
+        <label>
+          Fecha de cumpleaños:
+          <input
+            type="date"
+            name="birthday"
+            readOnly={readOnly}
+            onChange={handleChange}
+            defaultValue={userLog.birthday ? userLog.birthday : ""}
           />
         </label>
         <label>
@@ -45,7 +57,7 @@ const ProfileDataForm = ({ readOnly }) => {
             onChange={handleChange}
             readOnly={readOnly}
             type="email"
-            placeholder={userLog.email ? userLog.email : "email@email.com"}
+            placeholder={userLog.email ? userLog.email : ""}
           />
         </label>
         <label>
@@ -55,11 +67,7 @@ const ProfileDataForm = ({ readOnly }) => {
             onChange={handleChange}
             readOnly={readOnly}
             type="tel"
-            placeholder={
-              userLog.phoneNumber
-                ? userLog.phoneNumber
-                : "(Código de área) Número"
-            }
+            placeholder={userLog.phoneNumber ? userLog.phoneNumber : ""}
           />
         </label>
         <label>
@@ -69,17 +77,19 @@ const ProfileDataForm = ({ readOnly }) => {
             onChange={handleChange}
             readOnly={readOnly}
             type="text"
-            placeholder={
-              userLog.direction ? userLog.direction : "A donde te la llevamos?"
-            }
+            placeholder={userLog.direction ? userLog.direction : ""}
           />
         </label>
         <div className="buttons">
-          <button>
-            <img src={confirm} alt="ok" />
-          </button>
-          <button type="button">
+          <button
+            type="button"
+            className="buttonCancelEdit"
+            onClick={handleCancelEdit}
+          >
             <img src={cancel} alt="cancelar" />
+          </button>
+          <button className="buttonConfirmEdit">
+            <img src={confirm} alt="ok" />
           </button>
         </div>
       </form>
