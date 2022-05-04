@@ -41,7 +41,7 @@ const ProfileDataForm = ({ readOnly, setReadOnly }) => {
           />
         </label>
         <label>
-          Fecha de cumpleaños:
+          Fecha de nacimiento:
           <input
             type="date"
             name="birthday"
@@ -71,7 +71,7 @@ const ProfileDataForm = ({ readOnly, setReadOnly }) => {
           />
         </label>
         <label>
-          Dirección
+          Dirección/Piso/Depto.
           <input
             name="direction"
             onChange={handleChange}

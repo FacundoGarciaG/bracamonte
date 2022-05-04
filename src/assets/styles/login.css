@@ -154,7 +154,7 @@
   cursor: pointer;
   border: none;
   border-radius: 0.2rem;
-  padding: 0.6rem 0.6rem 0.4rem;
+
   outline: #f4b955 4px outset;
 }
 
@@ -274,4 +274,13 @@
   transition: border-color 0.2s;
   margin-bottom: 1rem;
   cursor: text;
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  .editButton,
+  .editButtonActive,
+  .logOutButton,
+  .adminButton {
+    width: 14%;
+  }
 }

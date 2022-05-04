@@ -72,7 +72,6 @@ const Form = ({ add, addImg }) => {
           placeholder="Nombre"
           name="name"
           onChange={handleInputChange}
-          // value={data.name}
           className="input"
         />
         <textarea
@@ -80,7 +79,6 @@ const Form = ({ add, addImg }) => {
           placeholder="Descripción"
           name="description"
           onChange={handleInputChange}
-          //value={data.description}
           className="input"
         />
         <div className="options">
@@ -98,8 +96,7 @@ const Form = ({ add, addImg }) => {
             type="number"
             name="price"
             onChange={handleInputChange}
-            //value={data.price}
-            className="input"
+            className="input price"
           />
 
           <label>Imagen</label>
@@ -107,7 +104,6 @@ const Form = ({ add, addImg }) => {
             type="file"
             name="img"
             onChange={fileHandleInputChange}
-            //value={data.img}
             className="inputImage"
           />
           <label className="active">Activo</label>
@@ -115,7 +111,6 @@ const Form = ({ add, addImg }) => {
             name="active"
             onChange={handleInputChange}
             defaultValue="false"
-            //value={data.active}
           >
             <option value="false">No</option>
             <option value="true">Si</option>

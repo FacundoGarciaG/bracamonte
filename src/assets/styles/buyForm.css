@@ -1,4 +1,4 @@
-h2 {
+h1 {
   text-align: center;
 }
 
@@ -36,7 +36,7 @@ h2 {
 .buyForm .observations {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: rem;
 }
 
 .buyForm textarea {
@@ -58,12 +58,16 @@ h2 {
   background-color: #f5d9a9;
   border-bottom: 2px solid #084c3d;
   outline: 0;
-  padding: 0.4rem 0.1rem;
+  padding: 0.4rem 0.2rem;
   transition: border-color 0.2s;
 }
 
+.buyForm select {
+  width: 11.5rem;
+}
+
 .buyForm h4 {
-  margin: 0%;
+  margin: 0;
 }
 
 .buyForm .buttons {
@@ -131,4 +135,69 @@ h2 {
 
 .burguerToBuy h4 {
   color: #f4b955;
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .buyFormContainer {
+    padding: 1rem 4rem;
+    height: 70%;
+    margin-bottom: 2rem;
+  }
+
+  .buyForm {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .buyForm label {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .buyForm input {
+    padding: 0.2rem 0.1rem;
+    font-size: 0.8rem;
+  }
+
+  .buyForm select {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.1rem;
+    width: 10.2rem;
+  }
+
+  .buyForm h4 {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .buttonBuyForm {
+    margin-bottom: 1.5rem;
+    width: 20%;
+  }
+
+  .cancelButton {
+    margin-bottom: 1.5rem;
+    width: 20%;
+  }
+  .alert {
+    font-size: 0.7rem;
+    width: 98%;
+    padding: 0.3rem;
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  .imgBurguerToPay {
+    width: 7rem;
+  }
+
+  .burguerToBuy {
+    margin-bottom: 0.5rem;
+  }
+
+  .burguerToBuy h4 {
+    font-size: 0.9rem;
+  }
 }

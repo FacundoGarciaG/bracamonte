@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  sendEmailVerification,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase";
@@ -29,10 +30,24 @@ export const AuthProvider = ({ children }) => {
   const signUp = async (email, password, rol) => {
     const userInfo = await createUserWithEmailAndPassword(auth, email, password)
       .then((user) => {
-        navigate("/");
-        toast("Usuario registrado con éxito", {
-          type: "success",
-        });
+        sendEmailVerification(user.user)
+          .then(() => {
+            logOut();
+            navigate("/");
+            toast(
+              "Usuario registrado con éxito, ahora verifique su email para poder ingresar",
+              {
+                type: "success",
+                autoClose: 5000,
+              }
+            );
+          })
+          .catch(() => {
+            toast("Email no existente", {
+              type: "error",
+            });
+          });
+
         return user;
       })
       .catch((error) => {
@@ -61,8 +76,27 @@ export const AuthProvider = ({ children }) => {
 
   const logIn = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/user");
+      .then((data) => {
+        if (data.user.emailVerified === true) {
+          window.localStorage.setItem(
+            "loggedBracamonte",
+            JSON.stringify(data.user)
+          );
+          navigate("/user");
+          toast("Bienvenido!", {
+            type: "success",
+          });
+        } else if (data.user.emailVerified === false) {
+          logOut();
+          navigate("/");
+          toast("Primero debe verificar su email en su bandeja de entrada", {
+            type: "error",
+            autoClose: 5000,
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 5000);
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -84,14 +118,25 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logOut = async () => {
-    await signOut(auth);
-    navigate("/");
+    await signOut(auth)
+      .then(() => {
+        setUserLog("");
+        window.localStorage.removeItem("loggedBracamonte");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const logInWithGoogle = async () => {
     const googleProvider = new GoogleAuthProvider();
     await signInWithPopup(auth, googleProvider)
-      .then(() => {
+      .then((data) => {
+        window.localStorage.setItem(
+          "loggedBracamonte",
+          JSON.stringify(data.user)
+        );
         navigate("/user");
       })
       .catch((error) => {
@@ -243,6 +288,14 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     });
+  }, []);
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem("loggedBracamonte");
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+      setUserLog(user);
+    }
   }, []);
 
   return (

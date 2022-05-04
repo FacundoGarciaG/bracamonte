@@ -18,7 +18,7 @@ main {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 0 3rem;
+  margin: 2rem 0 2rem;
 }
 
 .imageCart {
@@ -31,6 +31,7 @@ main {
   justify-content: space-around;
   width: 20%;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .payCart {
@@ -54,11 +55,6 @@ main {
   outline: #f4b955 4px outset;
   width: 3rem;
   height: 2.7rem;
-}
-
-.clearCart p,
-.payCart p {
-  cursor: pointer;
 }
 
 .clearCart:active,
@@ -133,7 +129,8 @@ main {
   border: none;
   outline: #f4b955 4px outset;
   border-radius: 0.2rem;
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 0.4rem;
+  margin-right: 5rem;
 }
 
 .cartItem .clearOne:active,
@@ -148,8 +145,51 @@ main {
   padding: 0.2rem 0.4rem;
   border-radius: 0.5rem;
   color: #f4b955;
+  margin-top: 1rem;
 }
 
 .price {
   color: #fff;
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  .emptyCart {
+    font-size: 4rem;
+  }
+  .payCart {
+    padding: 0.6rem 0.6rem 0.4rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .cartItem {
+    height: 7rem;
+  }
+
+  .productCartTitle {
+    width: 22%;
+  }
+
+  .cartItem .productPrice {
+    font-size: 1rem;
+    margin-left: 15.5rem;
+  }
+
+  .cartItem .clearOne {
+    padding: 0 0.4rem;
+  }
+
+  .cartItem .clearAll {
+    padding: 0.2rem 0.4rem;
+  }
+
+  .cartItem .addOne {
+    padding: 0.2rem 0.4rem;
+    margin-right: 2rem;
+  }
+
+  .total {
+    font-size: 1.5rem;
+    padding: 0.2rem 0.4rem;
+  }
 }

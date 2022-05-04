@@ -52,7 +52,7 @@ select {
 .contactForm .sendButton {
   margin: 1rem;
   width: 10%;
-  height: 4rem;
+  height: 3rem;
   background-color: #084c3d;
   cursor: pointer;
   border: none;
@@ -63,4 +63,24 @@ select {
 
 .contactForm .sendButton:active {
   outline: #f4b955 4px inset;
+}
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  .contactForm {
+    margin-top: 0;
+    width: 40%;
+    margin-bottom: 2rem;
+  }
+
+  .contact h1 {
+    font-size: 1.5rem;
+  }
+
+  .contactForm label {
+    margin: 0.5rem 0;
+  }
+
+  .contactForm .sendButton {
+    width: 10%;
+  }
 }

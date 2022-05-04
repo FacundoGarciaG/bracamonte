@@ -117,3 +117,12 @@ nav {
   margin-right: 0.2rem;
   transition: 1s;
 }
+
+@media (min-width: 1280px) and (max-width: 1366px) {
+  header {
+    height: 4rem;
+  }
+  #cart_menu_num {
+    right: 7.5%;
+  }
+}

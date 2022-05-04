@@ -27,8 +27,8 @@ const BuyForm = () => {
   };
 
   return (
-    <>
-      <h2>Confirmemos los datos para la entrega</h2>
+    <main>
+      <h1>Confirmemos los datos para la entrega</h1>
       <div className="buyFormContainer">
         <form
           className="buyForm"
@@ -56,7 +56,7 @@ const BuyForm = () => {
             />
           </label>
           <label>
-            Direccion de entrega
+            Direccion de entrega/Piso/Depto.
             <input
               required
               type="text"
@@ -90,7 +90,7 @@ const BuyForm = () => {
           ></textarea>
           <input
             readOnly={true}
-            defaultValue={`$${totalPrice}`}
+            defaultValue={`${totalPrice}`}
             className="burguers"
             name="entry.174680728"
           />
@@ -120,7 +120,7 @@ const BuyForm = () => {
           ))}
         </div>
       </div>
-    </>
+    </main>
   );
 };
 

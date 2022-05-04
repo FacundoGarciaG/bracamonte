@@ -7,7 +7,7 @@ const Home = () => {
   const [style, setStyle] = useState("image");
 
   function click() {
-    setStyle("image opacity");
+    setStyle("image none");
   }
   window.addEventListener("click", click);
 
