@@ -7,6 +7,7 @@ import { app } from "../../firebase";
 import Table from "../../components/admin/Table";
 import Loader from "../../components/Loader";
 import { doc, updateDoc } from "firebase/firestore";
+import { deleteObject } from "firebase/storage";
 
 const Admin = () => {
   const [hamburguers, setHamburguers] = useState([]);
@@ -33,7 +34,8 @@ const Admin = () => {
 
   const add = async (productObjet) => {
     const storageRef = app.storage().ref();
-    const filePath = storageRef.child(file.name);
+    const filePath = storageRef.child(`images/${file.name}`);
+
     try {
       setLoading(true);
       await filePath.put(file);
@@ -59,16 +61,25 @@ const Admin = () => {
     }
   };
 
-  const onDelete = async (id) => {
+  const onDelete = async (id, img) => {
+    const storageRef = app.storage().refFromURL(img);
+
     try {
       setLoading(true);
 
       if (window.confirm("Estas seguro que desea eliminar esta hamburguesa?")) {
         await db.collection("hamburguers").doc(id).delete();
-        setLoading(false);
-        toast("Hamburguesa eliminada", {
-          type: "success",
-        });
+        storageRef
+          .delete()
+          .then(function () {
+            setLoading(false);
+            toast("Hamburguesa eliminada", {
+              type: "success",
+            });
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       } else {
         setLoading(false);
       }

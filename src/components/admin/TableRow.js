@@ -89,7 +89,7 @@ const TableRow = ({ data, onDelete, updateActive, updatePrice }) => {
       </td>
 
       <td>
-        <button className="deleteButton" onClick={() => onDelete(data.id)}>
+        <button className="deleteButton" onClick={() => onDelete(data.id, img)}>
           <img src={remove} alt="borrar" />
         </button>
       </td>
