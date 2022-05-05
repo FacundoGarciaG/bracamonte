@@ -7,7 +7,7 @@ const insta = `<a
 href="https://www.instagram.com/bracamonteok/?hl=es-la"
 target="_blank"
 >
-<img  src=${instagram} alt="instagram" />
+<img  src=${instagram} alt="instagram"   style="width:1rem" />
 </a>`;
 
 const Footer = () => {

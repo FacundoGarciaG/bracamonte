@@ -14,3 +14,9 @@ body {
     padding: 4.5rem 2rem 4.5rem;
   }
 }
+
+@media (min-width: 360px) and (max-width: 412px) {
+  body {
+    padding: 3rem 0rem 2rem 0;
+  }
+}

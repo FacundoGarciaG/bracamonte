@@ -6,6 +6,7 @@ import user from "../assets/statics/icons/guest-24.png";
 import contact from "../assets/statics/icons/email-24.png";
 import hamburguer from "../assets/statics/icons/hamburger-24.png";
 import cartIcon from "../assets/statics/icons/cart-59-24.png";
+import arrowLeft from "../assets/statics/icons/arrow-101-16.png";
 import { useAuth } from "../context/authContext";
 import { useShopping } from "../context/shoppingContext";
 
@@ -18,6 +19,14 @@ const Header = () => {
 
   window.onscroll = function () {
     scrollFunction();
+  };
+
+  const movilHeader = document.getElementsByClassName("scrollHeader");
+
+  const handleClick = () => {
+    if (movilHeader) {
+      setStyleHeader("header");
+    }
   };
 
   const scrollFunction = () => {
@@ -36,6 +45,9 @@ const Header = () => {
       <header id="header" className={styleHeader}>
         <nav>
           <ul className="headerList">
+            <li className="arrow">
+              <img src={arrowLeft} alt="abrir menu" onClick={handleClick} />
+            </li>
             <li>
               <Link to="/user">
                 {userLog ? (

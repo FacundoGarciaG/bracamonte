@@ -147,3 +147,65 @@
     height: 10rem;
   }
 }
+
+@media (min-width: 360px) and (max-width: 412px) {
+  .products {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  /*PRODUCT*/
+
+  .product {
+    display: flex;
+    width: 100%;
+    margin: 0.5rem 0;
+    height: 28rem;
+  }
+
+  .productTitle h4 {
+    font-size: 0.9rem;
+  }
+
+  .vegan {
+    padding: 0.1rem 0.2rem 0.2rem;
+    font-size: 0.9rem;
+  }
+
+  .description {
+    padding: 0 0.5rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .description p {
+    font-size: 0.7rem;
+  }
+
+  .product .price {
+    font-size: 1.5rem;
+    top: 84%;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .product .add {
+    top: 91%;
+    padding: 0.4rem 0.4rem 0.3rem;
+  }
+
+  .product .add img {
+    width: 1.1rem;
+  }
+
+  .hamburguerContainer {
+    height: 15rem;
+  }
+}

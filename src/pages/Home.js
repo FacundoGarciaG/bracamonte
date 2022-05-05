@@ -5,14 +5,16 @@ import image from "../assets/statics/images/Imagen-Placa.jpg";
 
 const Home = () => {
   const [style, setStyle] = useState("image");
+  const [styleHome, setStyleHome] = useState("homeInitial");
 
   function click() {
     setStyle("image none");
+    setStyleHome("");
   }
   window.addEventListener("click", click);
 
   return (
-    <main className="home">
+    <main className={styleHome}>
       <img src={image} alt="bracamonte" className={style} />
       <Info />
     </main>
