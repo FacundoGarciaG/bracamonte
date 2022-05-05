@@ -10,7 +10,7 @@
   animation-duration: 3s;
 }
 
-@media (min-width: 360px) and (max-width: 412px) {
+@media (min-width: 290px) and (max-width: 412px) {
   .wpp {
     width: 2.5rem;
     bottom: 0;

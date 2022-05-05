@@ -20,7 +20,7 @@
   }
 }
 
-@media (min-width: 360px) and (max-width: 412px) {
+@media (min-width: 290px) and (max-width: 412px) {
   .birthday {
     display: flex;
     align-items: center;

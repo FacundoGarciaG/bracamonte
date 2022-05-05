@@ -15,7 +15,7 @@ body {
   }
 }
 
-@media (min-width: 360px) and (max-width: 412px) {
+@media (min-width: 290px) and (max-width: 412px) {
   body {
     padding: 3rem 0rem 2rem 0;
   }
