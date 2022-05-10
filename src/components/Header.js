@@ -1,8 +1,8 @@
 import React, { Suspense, useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/styles/header.css";
-import logo from "../assets/statics/logo/simboloEnAlfa.png";
-import user from "../assets/statics/icons/guest-24.png";
+import logo from "../assets/statics/logo/BVerde.png";
+import user from "../assets/statics/icons/guest-48.png";
 import contact from "../assets/statics/icons/email-24.png";
 import hamburguer from "../assets/statics/icons/hamburger-24.png";
 import cartIcon from "../assets/statics/icons/cart-59-24.png";
@@ -16,6 +16,7 @@ const Header = () => {
   const { totalQty } = useShopping();
 
   const [styleHeader, setStyleHeader] = useState("header");
+  const [logoContainer, setLogoContainer] = useState("logoContainer");
 
   window.onscroll = function () {
     scrollFunction();
@@ -26,6 +27,7 @@ const Header = () => {
   const handleClick = () => {
     if (movilHeader) {
       setStyleHeader("header");
+      setLogoContainer("logoContainer");
     }
   };
 
@@ -35,8 +37,10 @@ const Header = () => {
       document.documentElement.scrollTop > 35
     ) {
       setStyleHeader("scrollHeader");
+      setLogoContainer("notLogoContainer");
     } else {
       setStyleHeader("header");
+      setLogoContainer("logoContainer");
     }
   };
 
@@ -74,9 +78,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/">
-                <img src={logo} alt="logo" className="logoMain" />
-              </Link>
+              <div className={logoContainer}>
+                <Link to="/">
+                  <img src={logo} alt="logo" className="logoMain" />
+                </Link>
+              </div>
             </li>
             <li>
               <Link to="/menu">

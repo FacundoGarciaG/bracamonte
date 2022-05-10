@@ -5,18 +5,22 @@
 body {
   background-color: #f5d9a9;
   position: relative;
-  padding: 6rem 2rem 4rem;
+  padding: 0;
   min-height: 100vh;
 }
 
+main {
+  margin-top: 8.5rem;
+}
+
 @media (min-width: 1280px) and (max-width: 1366px) {
-  body {
-    padding: 4.5rem 2rem 4.5rem;
+  main {
+    margin-top: 6rem;
   }
 }
 
-@media (min-width: 290px) and (max-width: 412px) {
+@media (max-width: 412px) {
   body {
-    padding: 3rem 0rem 2rem 0;
+    margin-top: 2.4rem;
   }
 }

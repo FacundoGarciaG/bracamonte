@@ -2,6 +2,10 @@ main {
   height: 100%;
 }
 
+.mainCart {
+  margin-top: 10rem;
+}
+
 .cartItemContainer {
   display: flex;
   justify-content: center;
@@ -18,7 +22,6 @@ main {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 0 2rem;
 }
 
 .imageCart {
@@ -31,7 +34,7 @@ main {
   justify-content: space-around;
   width: 20%;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
 }
 
 .payCart {
@@ -153,6 +156,10 @@ main {
 }
 
 @media (min-width: 1280px) and (max-width: 1366px) {
+  .mainCart {
+    margin-top: 8rem;
+  }
+
   .emptyCart {
     font-size: 4rem;
   }

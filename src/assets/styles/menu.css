@@ -10,6 +10,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-bottom: 6rem;
 }
 
 /*PRODUCT*/
@@ -113,8 +114,8 @@
     margin-bottom: 1rem;
   }
   .product {
-    height: 27rem;
-    width: 20%;
+    height: 29.5rem;
+    width: 22%;
     margin: 2rem 1rem 0;
   }
 
@@ -128,6 +129,10 @@
   .description,
   p {
     font-size: 0.8rem;
+  }
+
+  .products {
+    margin-bottom: 8rem;
   }
 
   .product .price {
@@ -148,7 +153,10 @@
   }
 }
 
-@media (min-width: 290px) and (max-width: 412px) {
+@media (max-width: 412px) {
+  .menu {
+    margin: 0;
+  }
   .products {
     display: flex;
     flex-direction: column;
@@ -156,7 +164,7 @@
     align-items: center;
     padding: 0 1rem;
     width: 100%;
-    margin-top: 0.5rem;
+    margin-bottom: 2rem;
   }
 
   /*PRODUCT*/

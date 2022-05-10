@@ -55,44 +55,46 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="contact">
-      <h1>Contacto</h1>
-      <form ref={form} onSubmit={sendEmail} className="contactForm">
-        <label>
-          Nombre:
-          <input
-            type="text"
-            name="from_name"
-            defaultValue={userLog.displayName ? userLog.displayName : ""}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="from_email"
-            defaultValue={userLog.email ? userLog.email : ""}
-            readOnly={userLog.email ? true : false}
-          />
-        </label>
-        <label>
-          Tenes una hamburguesa favorita? cual?
-          <select name="favorite">
-            <option value="ninguna">Elige una opción!</option>
-            {hamburguers.map((i, index) => (
-              <option key={index}>{i.name}</option>
-            ))}
-          </select>
-        </label>
-        <label className="coments">
-          Algun comentario o sugerencia?
-          <textarea name="message" cols="30" rows="10"></textarea>
-        </label>
-        <button className="sendButton">
-          <img src={send} alt="enviar" />
-        </button>
-      </form>
-    </div>
+    <main>
+      <div className="contact">
+        <h1>Contacto</h1>
+        <form ref={form} onSubmit={sendEmail} className="contactForm">
+          <label>
+            Nombre:
+            <input
+              type="text"
+              name="from_name"
+              defaultValue={userLog.displayName ? userLog.displayName : ""}
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="from_email"
+              defaultValue={userLog.email ? userLog.email : ""}
+              readOnly={userLog.email ? true : false}
+            />
+          </label>
+          <label>
+            Tenes una hamburguesa favorita? cual?
+            <select name="favorite">
+              <option value="ninguna">Elige una opción!</option>
+              {hamburguers.map((i, index) => (
+                <option key={index}>{i.name}</option>
+              ))}
+            </select>
+          </label>
+          <label className="coments">
+            Algun comentario o sugerencia?
+            <textarea name="message" cols="30" rows="10"></textarea>
+          </label>
+          <button className="sendButton">
+            <img src={send} alt="enviar" />
+          </button>
+        </form>
+      </div>
+    </main>
   );
 };
 
