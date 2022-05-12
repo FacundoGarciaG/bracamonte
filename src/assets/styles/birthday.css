@@ -5,7 +5,7 @@
   bottom: 0;
   z-index: 10;
   background-color: #f4b955;
-  border-radius: 1rem;
+  /*  border-radius: 1rem; */
   padding: 1rem;
   width: 17%;
   animation-delay: 8s;
@@ -20,7 +20,7 @@
   }
 }
 
-@media (min-width: 290px) and (max-width: 412px) {
+@media only screen and (max-width: 450px) {
   .birthday {
     display: flex;
     align-items: center;

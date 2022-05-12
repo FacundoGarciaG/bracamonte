@@ -37,7 +37,7 @@
   position: absolute;
   top: 73.3%;
   right: 4.5%;
-  border-radius: 2rem;
+  /*   border-radius: 2rem; */
   width: 24.8rem;
   color: #fff;
   height: 5.8rem;
@@ -53,13 +53,13 @@
     top: 73.5%;
     right: 4.5%;
     width: 17.8rem;
-    border-radius: 1.5rem;
+    /*     border-radius: 1.5rem; */
     height: 4.8rem;
     font-size: 1.7rem;
   }
 }
 
-@media (max-width: 412px) {
+@media only screen and (max-width: 450px) {
   .carousel-root {
     margin-top: 0;
     padding-bottom: 0;
@@ -69,7 +69,7 @@
     top: 70%;
     right: 4%;
     width: 5.5rem;
-    border-radius: 0.5rem;
+    /*     border-radius: 0.5rem; */
     height: 1.8rem;
     font-size: 0.6rem;
   }

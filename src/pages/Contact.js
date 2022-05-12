@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import "../assets/styles/contact.css";
-import send from "../assets/statics/icons/send-file-24.png";
+import send from "../assets/statics/icons/send-file-24.jpg";
 import getAllProducts from "../functions/shopping/getAllProducts";
 import emailjs from "@emailjs/browser";
 import { useAuth } from "../context/authContext";

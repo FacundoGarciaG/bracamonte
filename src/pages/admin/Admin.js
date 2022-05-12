@@ -7,7 +7,6 @@ import { app } from "../../firebase";
 import Table from "../../components/admin/Table";
 import Loader from "../../components/Loader";
 import { doc, updateDoc } from "firebase/firestore";
-import { deleteObject } from "firebase/storage";
 
 const Admin = () => {
   const [hamburguers, setHamburguers] = useState([]);
@@ -157,7 +156,7 @@ const Admin = () => {
   } else {
     return (
       <div className="admin">
-        <h2>Administrador</h2>
+        <h1>Administrador</h1>
 
         <Form {...{ add, setHamburguers, addImg }} />
         <Table

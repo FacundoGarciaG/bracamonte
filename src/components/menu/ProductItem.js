@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import add from "../../assets/statics/icons/cart-43-24.png";
+import add from "../../assets/statics/icons/cart-43-24.jpg";
 import loadingSpin from "../../assets/statics/gif/loading.gif";
 import { useShopping } from "../../context/shoppingContext";
 
@@ -38,12 +38,7 @@ const ProductItem = ({ data }) => {
       </div>
 
       <div style={{ display: loading ? "none" : "flex" }}>
-        <img
-          className="hamburguer"
-          src={img}
-          alt="Hamburguesa"
-          onLoad={imageLoaded}
-        />
+        <img className="hamburguer" src={img} alt={name} onLoad={imageLoaded} />
       </div>
       <h5 className="price">${price}.00</h5>
       <button

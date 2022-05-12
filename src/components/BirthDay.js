@@ -6,16 +6,29 @@ import { useAuth } from "../context/authContext";
 const BirthDay = () => {
   const { userLog } = useAuth();
 
-  const date = new Date();
-  const day = `0${date.getDate()}`;
-  const month = `0${date.getMonth() + 1}`;
-  const today = `${month}-${day}`;
+  const newDate = new Date();
+  const day = `${newDate.getDate()}`;
+  const month = `${newDate.getMonth() + 1}`;
+
+  if (day < 10) {
+    var newDay = `0${day}`;
+  } else {
+    newDay = day;
+  }
+
+  if (month < 10) {
+    var newMonth = `0${month}`;
+  } else {
+    newMonth = month;
+  }
+
+  const date = `${newMonth}-${newDay}`;
 
   const birthday = userLog.birthday.slice(5);
 
   return (
     <>
-      {userLog.birthday && birthday === today ? (
+      {userLog.birthday && birthday === date ? (
         <div className="birthday animate__rotateOutUpRight">
           <h3>Feliz cumpleaños! Te desea Bracamonte.</h3>
         </div>

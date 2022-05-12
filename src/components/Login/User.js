@@ -17,7 +17,6 @@ const User = () => {
 
   return (
     <div className="profileContainer">
-      <ProfileDataForm readOnly={readOnly} setReadOnly={setReadOnly} />
       <div className="profile">
         <h3>Hola {userLog.displayName || userLog.email}!</h3>
 
@@ -48,7 +47,7 @@ const User = () => {
             onClick={() => setReadOnly(!readOnly)}
             className={readOnly ? "editButtonActive" : "editButton"}
           >
-            <img src={edit} alt="editar" />
+            <img src={edit} alt="editar" className="editImage" />
           </button>
 
           <button onClick={handleLogOut} className="logOutButton">
@@ -56,6 +55,7 @@ const User = () => {
           </button>
         </div>
       </div>
+      <ProfileDataForm readOnly={readOnly} setReadOnly={setReadOnly} />
     </div>
   );
 };

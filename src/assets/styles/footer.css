@@ -16,7 +16,7 @@ footer {
   width: 10rem;
 }
 
-@media (min-width: 290px) and (max-width: 412px) {
+@media only screen and (max-width: 450px) {
   footer {
     display: flex;
     flex-direction: row;

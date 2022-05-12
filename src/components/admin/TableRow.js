@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import remove from "../../assets/statics/icons/delete-24.png";
+import remove from "../../assets/statics/icons/delete-24.jpg";
 import loadingSpin from "../../assets/statics/gif/loading.gif";
 
 const TableRow = ({ data, onDelete, updateActive, updatePrice }) => {

@@ -191,23 +191,23 @@ nav {
   }
 }
 
-@media (max-width: 412px) {
+@media only screen and (max-width: 450px) {
   header {
-    height: 2.5rem;
+    height: 3.5rem;
   }
 
   nav ul li a .logoMain {
-    width: 1.8rem;
-    margin: 0 0.7rem 0 0.1rem;
+    width: 2.8rem;
+    margin: 0;
   }
 
   .headerList li a .icon {
-    width: 1.2rem;
+    width: 1.7rem;
     padding: 0;
   }
 
   .userImgHeader {
-    width: 1.5rem;
+    width: 1.9rem;
   }
 
   nav .headerList {
@@ -217,12 +217,8 @@ nav {
   }
 
   .logoContainer {
-    height: 2.8rem;
-    width: 5.2rem;
-  }
-
-  nav ul li a .logoMain {
-    margin: 0;
+    height: 4rem;
+    width: 6.5rem;
   }
 
   #cart_menu_num {
@@ -240,6 +236,10 @@ nav {
     margin-right: 0rem;
     padding-left: 0.4rem;
     height: 2.5rem;
+  }
+
+  .scrollHeader nav ul li a .logoMain {
+    width: 2rem;
   }
 
   .scrollHeader .arrow {

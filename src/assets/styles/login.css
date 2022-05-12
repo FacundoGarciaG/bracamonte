@@ -9,7 +9,7 @@
   background-color: #f4b955;
   width: 30%;
   padding: 1rem;
-  border-radius: 0.5rem;
+  /*   border-radius: 0.5rem; */
   box-shadow: 0px 0px 8px #084c3d;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
 
 .inputs input {
   border: 0;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   background-color: #f5d9a9;
   border-bottom: 2px solid #084c3d;
   outline: 0;
@@ -57,9 +57,9 @@
   background-color: #084c3d;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   padding: 0.6rem 0.6rem 0.4rem;
-  outline: #f4b955 4px outset;
+  /*   outline: #f4b955 4px outset; */
 }
 
 .login-register-form button:active,
@@ -71,9 +71,9 @@
   background-color: #084c3d;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   padding: 0.1rem 0.6rem 0;
-  outline: #f4b955 4px outset;
+  /* outline: #f4b955 4px outset; */
   width: 100%;
 }
 
@@ -118,6 +118,7 @@
 .profileContainer {
   display: flex;
   justify-content: space-around;
+  align-items: initial;
 }
 
 .profile {
@@ -127,8 +128,8 @@
   justify-content: space-around;
   background-color: #f4b955;
   width: 20%;
-  border-radius: 1rem;
-  position: fixed;
+  height: 15rem;
+  /*   border-radius: 1rem; */
   right: 0;
 }
 
@@ -153,9 +154,8 @@
   background-color: #084c3d;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
-
-  outline: #f4b955 4px outset;
+  /*   border-radius: 0.2rem; */
+  /*  outline: #f4b955 4px outset; */
 }
 
 .adminButton .adminButtonImage {
@@ -168,9 +168,9 @@
   background-color: #d05a68;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   padding: 0.6rem 0.6rem 0.4rem;
-  outline: #f4b955 4px outset;
+  /*   outline: #f4b955 4px outset; */
 }
 
 .editButton {
@@ -179,7 +179,7 @@
   background-color: #084c3d;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   padding: 0.6rem 0.6rem 0.4rem;
   outline: #f4b955 4px inset;
 }
@@ -190,9 +190,9 @@
   background-color: #d05a68;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   padding: 0.6rem 0.6rem 0.4rem;
-  outline: #f4b955 4px outset;
+  /* outline: #f4b955 4px outset; */
 }
 
 .logOutButton .logoutImage {
@@ -211,10 +211,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 20rem;
+  height: 28rem;
   width: 25rem;
   padding: 1rem 2rem;
-  border-radius: 1rem;
+  /*   border-radius: 1rem; */
 }
 
 .formDataUser {
@@ -246,10 +246,10 @@
 .formData .buttons button {
   width: 4rem;
   padding: 0.5rem;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   cursor: pointer;
   border: none;
-  outline: #f4b955 4px outset;
+  /*  outline: #f4b955 4px outset; */
 }
 
 .formData .buttons button:active {
@@ -266,7 +266,7 @@
 
 .formData label input {
   border: 0;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   background-color: #f5d9a9;
   border-bottom: 2px solid #084c3d;
   outline: 0;
@@ -282,5 +282,69 @@
   .logOutButton,
   .adminButton {
     width: 14%;
+  }
+
+  .profile {
+    width: 32%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  main {
+    width: 100%;
+  }
+  .profileContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .adminButton {
+    display: none;
+  }
+
+  .profile {
+    width: 95%;
+  }
+
+  .formData {
+    margin: 2rem auto 5rem;
+    width: 80%;
+  }
+
+  .formData label {
+    font-size: 0.8rem;
+  }
+
+  .formData label input {
+    width: 7.2rem;
+  }
+
+  .login-register {
+    margin-top: 1rem;
+    width: 82%;
+  }
+
+  .login-register-form input {
+    font-size: 0.8rem;
+    width: 100%;
+  }
+
+  .login-register-form button {
+    width: 3rem;
+  }
+
+  .googleLogin {
+    width: 10rem;
+  }
+
+  .linksLogIn {
+    width: 95%;
+  }
+
+  .linksLogIn p,
+  a {
+    font-size: 0.7rem;
   }
 }

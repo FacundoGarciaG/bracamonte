@@ -19,7 +19,7 @@ main {
   }
 }
 
-@media (max-width: 412px) {
+@media only screen and (max-width: 450px) {
   body {
     margin-top: 2.4rem;
   }

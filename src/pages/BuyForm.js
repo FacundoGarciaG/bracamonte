@@ -33,7 +33,7 @@ const BuyForm = () => {
         <form
           className="buyForm"
           method="POST"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSchi6oHIoJBsHlOxehap1vmEwW-2F2hyma4Cg_T8xgAF-OG3g/formResponse"
+          action="https://docs.google.com/forms/d/1jbTylRx2dYb2mshNLFMcnF5LlGZocE-doMbc0J-YrOs/formResponse"
         >
           <label>
             Nombre y apellido
@@ -41,7 +41,7 @@ const BuyForm = () => {
               required={true}
               readOnly={userLog.displayName ? true : false}
               type="text"
-              name="entry.1387036520"
+              name="entry.894146503"
               defaultValue={userLog.displayName ? userLog.displayName : null}
             />
           </label>
@@ -51,7 +51,7 @@ const BuyForm = () => {
               required
               readOnly={userLog.phoneNumber ? true : false}
               type="tel"
-              name="entry.828623377"
+              name="entry.1599608988"
               defaultValue={userLog.phoneNumber ? userLog.phoneNumber : null}
             />
           </label>
@@ -60,13 +60,13 @@ const BuyForm = () => {
             <input
               required
               type="text"
-              name="entry.1161125677"
+              name="entry.1938799800"
               defaultValue={userLog.direction ? userLog.direction : null}
             />
           </label>
           <label>
             Metodo de pago (Mercado pago o efectivo)
-            <select required name="entry.2001519594">
+            <select required name="entry.1221798094">
               <option value="Efectivo">Efectivo</option>
               <option value="Mercado Pago">Mercado Pago</option>
             </select>
@@ -74,25 +74,31 @@ const BuyForm = () => {
           </label>
           <label>
             Necesitas cambio? Con cuanto vas a pagar?
-            <input type="text" name="entry.315643629" />
+            <input type="text" name="entry.477129416" />
           </label>
           <label className="observations">
             Observaciones
-            <textarea name="entry.249426018" cols="30" rows="10"></textarea>
+            <textarea name="entry.1775520747" cols="30" rows="10"></textarea>
           </label>
           <textarea
             readOnly={true}
             defaultValue={burguer}
             className="burguers"
-            name="entry.422487750"
+            name="entry.2051242954"
             cols="30"
             rows="10"
           ></textarea>
           <input
+            type="text"
+            name="entry.1191640665"
+            defaultValue={userLog.email}
+            className="burguers"
+          />
+          <input
             readOnly={true}
             defaultValue={`${totalPrice}`}
             className="burguers"
-            name="entry.174680728"
+            name="entry.1107702836"
           />
           <h4>TOTAL DE BRACAMONTES: {totalQty}</h4>
           <h4>TOTAL A PAGAR: ${totalPrice}</h4>
@@ -107,11 +113,11 @@ const BuyForm = () => {
             <button className="buttonBuyForm" type="submit">
               <img src={ok} alt="ok" />
             </button>
-            <p className="alert">
-              Si queres cambiar alguno de tus datos personales es mejor que
-              vayas a tu perfil de usuario!
-            </p>
           </div>
+          <p className="alert">
+            Si queres cambiar alguno de tus datos personales es mejor que vayas
+            a tu perfil de usuario!
+          </p>
         </form>
         <div className="dataBurguers">
           <h3>Detalle:</h3>

@@ -191,8 +191,16 @@ export const AuthProvider = ({ children }) => {
         toast("Necesitamos tu correo electrónico", {
           type: "warning",
         });
+      } else if (birthday === "" || birthday === undefined) {
+        toast("Cuando naciste?", {
+          type: "warning",
+        });
       } else if (phoneNumber === "" || phoneNumber === undefined) {
         toast("Dejanos tu numero de teléfono", {
+          type: "warning",
+        });
+      } else if (phoneNumber.length < 10 || phoneNumber.length > 10) {
+        toast("Dejanos tu numero de teléfono valido (sin 0 y sin 15)", {
           type: "warning",
         });
       } else if (direction === "" || direction === undefined) {

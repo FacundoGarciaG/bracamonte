@@ -17,7 +17,7 @@ h1 {
   height: 100%;
   background-color: #f4b955;
   padding: 2rem;
-  border-radius: 2rem;
+  /*   border-radius: 2rem; */
   width: 45%;
   position: relative;
 }
@@ -43,7 +43,7 @@ h1 {
   width: 100%;
   margin-top: 0.5rem;
   border: 0;
-  border-radius: 0.2rem;
+  /*  border-radius: 0.2rem; */
   background-color: #f5d9a9;
   border-bottom: 2px solid #084c3d;
   outline: 0;
@@ -54,7 +54,7 @@ h1 {
 
 .buyForm input {
   border: 0;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   background-color: #f5d9a9;
   border-bottom: 2px solid #084c3d;
   outline: 0;
@@ -83,9 +83,9 @@ h1 {
   background-color: #084c3d;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   padding: 0.6rem 0.6rem 0.4rem;
-  outline: #f4b955 4px outset;
+  /* outline: #f4b955 4px outset; */
 }
 
 .cancelButton {
@@ -94,9 +94,9 @@ h1 {
   background-color: #d05a68;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   padding: 0.6rem 0.6rem 0.4rem;
-  outline: #f4b955 4px outset;
+  /* outline: #f4b955 4px outset; */
 }
 
 .alert {
@@ -109,7 +109,7 @@ h1 {
   text-align: center;
   background-color: #d05a68;
   padding: 0.3rem;
-  border-radius: 0 0 2rem 2rem;
+  /*   border-radius: 0 0 2rem 2rem; */
 }
 
 .imgBurguerToPay {
@@ -130,7 +130,7 @@ h1 {
   align-items: center;
   background-color: #084c3d;
   padding: 0 1rem;
-  border-radius: 0.5rem;
+  /*   border-radius: 0.5rem; */
 }
 
 .burguerToBuy h4 {
@@ -150,7 +150,7 @@ h1 {
 
   .buyForm {
     padding: 1rem;
-    border-radius: 1rem;
+    /*     border-radius: 1rem; */
   }
 
   .buyForm label {
@@ -186,7 +186,7 @@ h1 {
     font-size: 0.7rem;
     width: 98%;
     padding: 0.3rem;
-    border-radius: 0 0 1rem 1rem;
+    /*     border-radius: 0 0 1rem 1rem; */
   }
 
   .imgBurguerToPay {
@@ -199,5 +199,79 @@ h1 {
 
   .burguerToBuy h4 {
     font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  h1 {
+    font-size: 1rem;
+  }
+
+  .buyFormContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  .buyForm {
+    width: 92%;
+    padding: 0.5rem;
+    /*     border-radius: 0.2rem; */
+  }
+
+  .buyForm label {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .buyForm label input {
+    width: 8rem;
+    font-size: 0.8rem;
+  }
+
+  .buyForm label select {
+    width: 6rem;
+    font-size: 0.8rem;
+  }
+
+  .buyForm h4 {
+    font-size: 0.9rem;
+  }
+
+  .buyForm .buttons {
+    margin: 2rem 0;
+  }
+
+  .buyForm .alert {
+    width: 98%;
+    font-size: 0.6rem;
+    /*     border-radius: 0 0 0.2rem 0.2rem; */
+  }
+
+  .dataBurguers {
+    margin-top: 2rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .burguerToBuy {
+    height: 4rem;
+  }
+
+  .burguerToBuy h4 {
+    font-size: 0.8rem;
+  }
+
+  .burguerToBuy .imgBurguerToPay {
+    width: 5rem;
   }
 }

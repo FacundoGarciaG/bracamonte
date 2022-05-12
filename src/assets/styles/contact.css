@@ -12,7 +12,7 @@
   width: 30%;
   background-color: #f4b955;
   padding: 1rem;
-  border-radius: 2rem;
+  /*   border-radius: 2rem; */
   margin-top: 2rem;
 }
 
@@ -36,7 +36,7 @@
 select,
 textarea {
   border: 0;
-  border-radius: 0.2rem;
+  /*   border-radius: 0.2rem; */
   background-color: #f5d9a9;
   border-bottom: 2px solid #084c3d;
   outline: 0;
@@ -56,9 +56,12 @@ select {
   background-color: #084c3d;
   cursor: pointer;
   border: none;
-  border-radius: 0.2rem;
-  padding: 0.6rem 0.6rem 0.4rem;
-  outline: #f4b955 4px outset;
+  /*   border-radius: 0.2rem; */
+  /*  outline: #f4b955 4px outset; */
+}
+
+.contactForm .sendButton img {
+  width: 2rem;
 }
 
 .contactForm .sendButton:active {
@@ -82,5 +85,28 @@ select {
 
   .contactForm .sendButton {
     width: 10%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  main {
+    margin-top: 5rem;
+  }
+
+  .contact h1 {
+    font-size: 1.5rem;
+  }
+  .contactForm label {
+    margin: 1rem 0;
+  }
+
+  .contactForm {
+    margin-top: 0;
+    width: 85%;
+    margin-bottom: 2rem;
+  }
+
+  .contactForm .sendButton {
+    width: 15%;
   }
 }
